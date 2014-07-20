@@ -41,37 +41,37 @@ var Grid = cc.Sprite.extend({
 
     updateSprite:function () {
         if (this.num == 2) {
-            this.txt.setString("商");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(238, 228, 218));
         } else if (this.num == 4) {
-            this.txt.setString("周");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(237, 224, 200));
         } else if (this.num == 8) {
-            this.txt.setString("秦");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(242, 177, 121));
         } else if (this.num == 16) {
-            this.txt.setString("汉");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(245, 149, 99));
         } else if (this.num == 32) {
-            this.txt.setString("唐");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(246, 124, 95));
         } else if (this.num == 64) {
-            this.txt.setString("宋");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(246, 94, 59));
         } else if (this.num == 128) {
-            this.txt.setString("元");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(237, 207, 114));
         } else if (this.num == 256) {
-            this.txt.setString("明");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(237, 204, 97));
         } else if (this.num == 512) {
-            this.txt.setString("清");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(238, 147, 143));
         } else if (this.num == 1024) {
-            this.txt.setString("ROC");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(244, 128, 218));
         } else if (this.num == 2048) {
-            this.txt.setString("PRC");
+            this.txt.setString(this.num.toString());
             this.setColor(cc.c3b(255, 0, 0));
         } else {
             this.txt.setString("?");
@@ -119,15 +119,14 @@ var MyLayer = cc.Layer.extend({
 
         var winSize = cc.Director.getInstance().getWinSize();
 
-        var colorLayer = cc.LayerColor.create(cc.c4b(255, 255, 255, 255), winSize.width, winSize.height);
-        colorLayer.setAnchorPoint(cc.p(0, 0));
-        colorLayer.setPosition(cc.p(-winSize.width * 0.5, -winSize.height * 0.5));
-        this.addChild(colorLayer, 0);
+        // var colorLayer = cc.LayerColor.create(cc.c4b(255, 255, 255, 255), winSize.width, winSize.height);
+        // colorLayer.setAnchorPoint(cc.p(0, 0));
+        // colorLayer.setPosition(cc.p(-winSize.width * 0.5, -winSize.height * 0.5));
+        // this.addChild(colorLayer, 0);
 
         this.container = cc.Node.create();
         this.addChild(this.container, 0);
 
-        this.setAnchorPoint(cc.p(0.5, 0.5));
         this.setPosition(cc.p(winSize.width * 0.5, winSize.height * 0.5));
 
         for (var i = 3; i <= 7; i++) {
@@ -160,7 +159,7 @@ var MyLayer = cc.Layer.extend({
 
         if (indexes.length > 0) {
             var temp = Math.floor(Math.random() * indexes.length);
-            return temp;
+            return indexes[temp];
         } else {
             return -1;
         }
